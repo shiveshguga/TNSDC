@@ -1,0 +1,21 @@
+<!-- Same as user_profile.html but add this inside profile-actions div: -->
+<button onclick="document.getElementById('upload-modal').style.display='block'">Upload Post</button>
+
+<!-- And add this modal after edit-modal: -->
+<div id="upload-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Create New Post</h3>
+        <form action="/admin_upload" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Upload Content:</label>
+                <input type="file" name="content" accept="image/*,video/*">
+            </div>
+            <div class="form-group">
+                <label>Caption:</label>
+                <textarea name="caption"></textarea>
+            </div>
+            <button type="submit">Post</button>
+        </form>
+    </div>
+</div>

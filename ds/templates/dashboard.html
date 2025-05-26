@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #27ae60;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-color);
+            margin: 0;
+            padding: 0;
+            color: var(--dark-color);
+        }
+        
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            width: 150px;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .welcome-message {
+            margin-right: 20px;
+            font-weight: 600;
+        }
+        
+        .btn-logout {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-logout:hover {
+            background-color: #c0392b;
+        }
+        
+        .dashboard-content {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .dashboard-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+        
+        .stat-card {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin: 10px 0;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+    
+    /* Add these new styles to your existing CSS */
+    .account-controls {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .account-btn {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid var(--secondary-color);
+    }
+    
+    .profile-icon {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="header">
+            <img src="https://via.placeholder.com/150x50?text=Company+Logo" alt="Company Logo" class="logo">
+            <div class="user-info">
+    <div class="welcome-message">Welcome, {{ userid }}</div>
+    <div class="account-controls">
+       <a href="{{ url_for('profile') }}" class="account-btn" title="Go to Profile">
+    <img src="{{ url_for('static', filename='images/profile-icon.png') }}" alt="Account" class="profile-icon">
+    <span style="position: absolute; left: -9999px;">Go to Profile</span>
+</a>
+
+
+        <a href="/logout" class="btn-logout">Logout</a>
+    </div>
+</div>
+
+        </div>
+        
+        <div class="dashboard-content">
+            <h2>Company Dashboard</h2>
+            <p>You have successfully logged in to the company portal.</p>
+            
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-value">24</div>
+                    <div class="stat-label">New Projects</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">156</div>
+                    <div class="stat-label">Total Employees</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">$1.2M</div>
+                    <div class="stat-label">Revenue</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
